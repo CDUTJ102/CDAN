@@ -20,25 +20,26 @@ if __name__ == '__main__':
     train_path = r'/'
     val_path = r'/'
     batch_size = 30
-    crop_size = 256
+    crop_size_train = 256
+    crop_size_val = 256
     net_scale = 4
     checkpoint = r'params/CDAN_x4.pth'
     model = 'CDAN'
     start_epoch = 1
     epochs = 300
-    workers = 2
+    workers = 32
     ngpu = 1
     cudnn.benchmark = True
     lr = 1e-4
 
-    train_dataloader = DataLoader(Train_dataset(train_path, crop_size, net_scale), batch_size=batch_size,
+    train_dataloader = DataLoader(Train_dataset(train_path, crop_size_train, net_scale, workers=workers), batch_size=batch_size,
                                   shuffle=True, drop_last=True)
 
-    val_dataloader = DataLoader(Train_dataset(val_path, crop_size, net_scale), batch_size=1)
+    val_dataloader = DataLoader(Train_dataset(val_path, crop_size_val, net_scale, workers=workers), batch_size=1)
 
     pre_psnr = 0
 
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:0")
     print(device)
 
     writer = SummaryWriter(r'log/CDAN_x2')
