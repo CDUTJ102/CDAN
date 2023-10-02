@@ -22,7 +22,7 @@ if __name__ == '__main__':
     batch_size = 30
     crop_size = 256
     net_scale = 4
-    checkpoint = r'params/CDAN——x4.pth'
+    checkpoint = r'params/CDAN_x4.pth'
     model = 'CDAN'
     start_epoch = 1
     epochs = 300
