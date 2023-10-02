@@ -41,7 +41,7 @@ if __name__ == '__main__':
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(device)
 
-    writer = SummaryWriter(r'log/vdsr2b')
+    writer = SummaryWriter(r'log/CDAN_x2')
 
     if model == 'CDAN':
         net = CDAN(scale=net_scale)
@@ -140,23 +140,23 @@ if __name__ == '__main__':
                 test_loss += loss.item()
 
                 if i == n_iter_test - 30:
-                    writer.add_image('EDSR/epoch_' + str(epoch) + '_lr',
+                    writer.add_image('CDAN/epoch_' + str(epoch) + '_lr',
                                      make_grid(lr_imgs[:4, :3, :, :].cpu(), nrow=4, normalize=True), epoch)
-                    writer.add_image('EDSR/epoch_' + str(epoch) + '_sr',
+                    writer.add_image('CDAN/epoch_' + str(epoch) + '_sr',
                                      make_grid(sr_imgs[:4, :3, :, :].cpu(), nrow=4, normalize=True), epoch)
-                    writer.add_image('EDSR/epoch_' + str(epoch) + '_hr',
+                    writer.add_image('CDAN/epoch_' + str(epoch) + '_hr',
                                      make_grid(hr_imgs[:4, :3, :, :].cpu(), nrow=4, normalize=True), epoch)
 
         epoch_loss_test = test_loss / n_iter_test
         epoch_psnr = all_psnr / n_iter_test
 
         # tensorboard
-        writer.add_scalars('EDSR/Loss', {
+        writer.add_scalars('CDAN/Loss', {
             'train_loss': epoch_loss_train,
             'test_loss': epoch_loss_test,
         }, epoch)
 
-        writer.add_scalars('EDSR/PSNR', {
+        writer.add_scalars('CDAN/PSNR', {
             'train_psnr': train_psnr,
             'test_psnr': epoch_psnr,
         }, epoch)
