@@ -17,15 +17,15 @@ from ESRT import *
 
 if __name__ == '__main__':
 
-    train_path = r'data/train_data(0-1).npy'
-    val_path = r'data/test_data(0-1).npy'
-    batch_size = 24
-    crop_size = 100
-    net_scale = 2
-    checkpoint = r'params/our2b.pth'
+    train_path = r'/'
+    val_path = r'/'
+    batch_size = 30
+    crop_size = 256
+    net_scale = 4
+    checkpoint = r'params/CDAN——x4.pth'
     model = 'CDAN'
     start_epoch = 1
-    epochs = 500
+    epochs = 300
     workers = 2
     ngpu = 1
     cudnn.benchmark = True
