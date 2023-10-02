@@ -19,7 +19,7 @@ class _Res_Block(nn.Module):
             nn.ReLU(),
             nn.Conv2d(c_, c1, kernel_size=1)
         )
-        assert k & 1, '卷积核尺寸需为奇数'
+        assert k & 1, 'The size of the convolution kernel must be odd.'
 
         self.conv = nn.Conv2d(2, 1, kernel_size=k, padding=k // 2)
 
