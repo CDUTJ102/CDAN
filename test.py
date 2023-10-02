@@ -19,9 +19,9 @@ from skimage.metrics import structural_similarity as compare_ssim
 if __name__ == '__main__':
 
     model = 'CDAN'
-    weights = rf'params/CDAN_x2.pth'
-    test_data_path = r'data/bi_g_c.npy'
-    net_scale = 2
+    weights = rf'params/CDAN_x4.pth'
+    test_data_path = r'data/StructSeg2019.npy'
+    net_scale = 4
     save_path = 'pic'
     batch_size = 1
 
