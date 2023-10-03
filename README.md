@@ -53,7 +53,7 @@ epochs: 300
 workers: 32
 ngpu: 1
 cudnn.benchmark: True
-lr: 1e-4
+lr: 0.001
 lr-gamma: 0.95
 lr-step: 5
 log_dir: <foler-to-log-to>
