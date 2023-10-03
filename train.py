@@ -1,6 +1,7 @@
 import torch.backends.cudnn as cudnn
 from torchvision.utils import make_grid
 from torch.utils.tensorboard import SummaryWriter
+import os
 from dataset import *
 from math import log10
 from torch.utils.data.dataloader import DataLoader
@@ -23,8 +24,8 @@ if __name__ == '__main__':
     crop_size_train = 128
     crop_size_val = 128
     net_scale = 4
-    checkpoint = r'trained_model/CDAN_x4.pth'
     model = 'CDAN'
+    checkpoint = rf'trained_model/{model}_x{net_scale}.pth'
     start_epoch = 1
     epochs = 300
     workers = 32
@@ -33,12 +34,17 @@ if __name__ == '__main__':
     lr = 1e-4
     lr_gamma = 0.95
     lr_step = 5
-    log_dir = r'log/CDAN_x4'
+    log_dir = rf'log/{model}_x{net_scale}'
 
-    train_dataloader = DataLoader(Train_dataset(train_path, crop_size_train, net_scale, workers=workers), batch_size=batch_size,
-                                  shuffle=True, drop_last=True)
+    if os.path.isdir(log_dir):
+        pass
+    else:
+        os.mkdir(log_dir)
 
-    val_dataloader = DataLoader(Train_dataset(val_path, crop_size_val, net_scale, workers=workers), batch_size=1)
+    train_dataloader = DataLoader(Train_dataset(train_path, crop_size_train, net_scale), batch_size=batch_size,
+                                  num_workers=workers, shuffle=True, drop_last=True)
+
+    val_dataloader = DataLoader(Train_dataset(val_path, crop_size_val, net_scale), batch_size=1, num_workers=workers)
 
     pre_psnr = 0
 
