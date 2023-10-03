@@ -8,7 +8,7 @@ This is the official PyTorch implementation of the CDAN super-resolution reconst
 
 The novel approach is comprised of 32 recurrent convolution unit to learn the sophisticated mapping of CT images from ”Low-” to ”High-” resolution and use the attentional mechanism module with residual structure to capture the channel information in the feature map.
 
-<img src="./model/CDAN.png" width="1000px">
+<img src="./model/CDAN.png" width="900px">
 
 # Test:
 
