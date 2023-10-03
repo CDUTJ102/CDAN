@@ -20,8 +20,8 @@ if __name__ == '__main__':
     train_path = r'/'
     val_path = r'/'
     batch_size = 30
-    crop_size_train = 256
-    crop_size_val = 256
+    crop_size_train = 128
+    crop_size_val = 128
     net_scale = 4
     checkpoint = r'params/CDAN_x4.pth'
     model = 'CDAN'
@@ -31,6 +31,8 @@ if __name__ == '__main__':
     ngpu = 1
     cudnn.benchmark = True
     lr = 1e-4
+    lr_gamma = 0.95
+    lr_step = 5
 
     train_dataloader = DataLoader(Train_dataset(train_path, crop_size_train, net_scale, workers=workers), batch_size=batch_size,
                                   shuffle=True, drop_last=True)
@@ -72,7 +74,7 @@ if __name__ == '__main__':
         net = RFDN(scale=net_scale)
 
     optimizer = torch.optim.Adam(params=net.parameters(), lr=lr)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.95)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=lr_step, gamma=lr_gamma)
 
     print('Current model: %s' % model)
     net = net.to(device)
