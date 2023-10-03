@@ -10,11 +10,11 @@ The novel approach is comprised of 32 recurrent convolution unit to learn the so
 
 <img src="./model/CDAN.png" width="900px">
 
-# Test:
+# Test
 
 **The pretrained models and test codes are uploaded, now you can run `test.py` to get results in the paper.**
 
-# Parameters:
+# Parameters
 - `train_path`: Select the training data path.
 - `val_path`: Select the validation data path.
 - `batch_size`: Select the batch size of network for the training phase. Default to 30.
