@@ -19,7 +19,7 @@ from skimage.metrics import structural_similarity as compare_ssim
 if __name__ == '__main__':
 
     model = 'CDAN'
-    weights = rf'params/CDAN_x4.pth'
+    weights = rf'trained_model/CDAN_x4.pth'
     test_data_path = r'data/StructSeg2019.npy'
     net_scale = 4
     save_path = 'pic'

@@ -23,7 +23,7 @@ if __name__ == '__main__':
     crop_size_train = 128
     crop_size_val = 128
     net_scale = 4
-    checkpoint = r'params/CDAN_x4.pth'
+    checkpoint = r'trained_model/CDAN_x4.pth'
     model = 'CDAN'
     start_epoch = 1
     epochs = 300
@@ -33,6 +33,7 @@ if __name__ == '__main__':
     lr = 1e-4
     lr_gamma = 0.95
     lr_step = 5
+    log_dir = r'log/CDAN_x4'
 
     train_dataloader = DataLoader(Train_dataset(train_path, crop_size_train, net_scale, workers=workers), batch_size=batch_size,
                                   shuffle=True, drop_last=True)
@@ -44,7 +45,7 @@ if __name__ == '__main__':
     device = torch.device("cuda:0")
     print(device)
 
-    writer = SummaryWriter(r'log/CDAN_x2')
+    writer = SummaryWriter(log_dir)
 
     if model == 'CDAN':
         net = CDAN(scale=net_scale)
