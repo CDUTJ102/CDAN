@@ -8,7 +8,7 @@ This is the official PyTorch implementation of the CDAN super-resolution reconst
 
 The novel approach is comprised of 32 recurrent convolution unit to learn the sophisticated mapping of CT images from ”Low-” to ”High-” resolution and use the attentional mechanism module with residual structure to capture the channel information in the feature map.
 
-<img src="./model/CDAN.png" width="700px">
+<img src="./model/CDAN.png" width="1000px">
 
 # Test:
 
@@ -31,9 +31,9 @@ The novel approach is comprised of 32 recurrent convolution unit to learn the so
 - `logdir`: Select a folder to save training and validation logs to.
 
 # Start Training
-Ensure all requirements from the `Parameters`  are met.
+Ensure all requirements from the `Parameters` are met.
 
-To start training, run `train.py`.The results will be logged into the `log` directory.
+To start training, run `train.py`. The results will be logged into the `log` directory.
 
 # Example
 
