@@ -31,7 +31,7 @@ if __name__ == '__main__':
     workers = 32
     ngpu = 1
     cudnn.benchmark = True
-    lr = 1e-4
+    lr = 1e-3
     lr_gamma = 0.95
     lr_step = 5
     log_dir = rf'log/{model}_x{net_scale}'
