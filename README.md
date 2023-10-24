@@ -3,8 +3,7 @@
 <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=Pytorch&logoColor=white"/></a>
 
 # CDAN
-This is the official PyTorch implementation of the CDAN super-resolution reconstruction algorithm using the recurrent dual attention mechanism from "Cyclic Residual Convolutional Neural Network based on Dual Attention Mechanism
-(CDAN) for CT Image Super-Resolution" (Yanhua Liu, Xiangchen Li, Min Liu, Feng Yang, Hongjuan Yang, 2023).
+This is the official PyTorch implementation of the CDAN super-resolution reconstruction algorithm using the recurrent dual attention mechanism from "Cyclic Dual Attention Residual-Learning Network for CT Image Super Resolution" (Yanhua Liu, Xiangchen Li, Min Liu, Feng Yang, Hongjuan Yang, 2023).
 
 The novel approach is comprised of 32 recurrent convolution unit to learn the sophisticated mapping of CT images from ”Low-” to ”High-” resolution and use the attentional mechanism module with residual structure to capture the channel information in the feature map.
 
